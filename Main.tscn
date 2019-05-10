@@ -74,6 +74,7 @@
 resource_name = "init"
 length = 2.0
 loop = true
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Man:position")
 tracks/0/interp = 1
@@ -110,6 +111,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Woman:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3 ]
+}
 
 [node name="Main" type="Node2D"]
 
@@ -136,11 +149,13 @@ texture = ExtResource( 3 )
 position = Vector2( 45, 46 )
 texture = ExtResource( 4 )
 hframes = 9
-frame = 6
+frame = 5
 
 [node name="Woman" type="Sprite" parent="."]
 position = Vector2( 62, 46 )
 texture = ExtResource( 5 )
+hframes = 9
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "init"
