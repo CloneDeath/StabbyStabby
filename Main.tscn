@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Background/Sidewalk.png" type="Texture" id=1]
 [ext_resource path="res://Background/Fence.png" type="Texture" id=2]
 [ext_resource path="res://Background/Stopsign.png" type="Texture" id=3]
 [ext_resource path="res://Man/Man.png" type="Texture" id=4]
 [ext_resource path="res://Woman/Woman.png" type="Texture" id=5]
+[ext_resource path="res://Woman/Blood.png" type="Texture" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Sidewalk.png 0"
@@ -96,7 +97,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.7, 4.8, 8 ),
 "transitions": PoolRealArray( 1, 0, 0, 1 ),
 "update": 0,
-"values": [ Vector2( 87, 46 ), Vector2( 51, 46 ), Vector2( 46, 46 ), Vector2( 51, 46 ) ]
+"values": [ Vector2( 87, 46 ), Vector2( 51, 46 ), Vector2( 46, 46 ), Vector2( 46, 46 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Man:frame")
@@ -122,6 +123,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 9, 10, 11, 12 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Woman/Blood:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6, 6.4, 6.8, 7.2, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
 
 [node name="Main" type="Node2D"]
 
@@ -145,16 +158,22 @@ position = Vector2( 11, 30 )
 texture = ExtResource( 3 )
 
 [node name="Man" type="Sprite" parent="."]
-position = Vector2( 72.6667, 46 )
+position = Vector2( 87, 46 )
 texture = ExtResource( 4 )
 hframes = 19
-frame = 3
+frame = 7
 
 [node name="Woman" type="Sprite" parent="."]
 position = Vector2( 46, 46 )
 texture = ExtResource( 5 )
 hframes = 13
-frame = 11
+frame = 12
+
+[node name="Blood" type="Sprite" parent="Woman"]
+position = Vector2( -1, 17 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "init"
